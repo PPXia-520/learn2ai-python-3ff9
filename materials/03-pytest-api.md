@@ -156,6 +156,7 @@ def test_reject_invalid_limit(client, limit):
 ```python
 @pytest.fixture
 def client_with_fake_repo():
+    # app、get_book_repository 和 FakeBookRepository 需从应用与测试代码中导入或定义
     app.dependency_overrides[get_book_repository] = lambda: FakeBookRepository()
     try:
         with TestClient(app) as test_client:

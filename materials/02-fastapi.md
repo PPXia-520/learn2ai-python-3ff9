@@ -176,6 +176,7 @@ def list_books(
 - 新建成功用 `status_code=status.HTTP_201_CREATED`。
 - 删除成功且无响应体用 `204`。
 - 业务错误用 `HTTPException` 抛出，而不是返回 `{"ok": False}` 加 `200`。
+- FastAPI 默认把 `HTTPException` 的 `detail` 包装为 `{"detail": "..."}`；需要统一错误码时，可在应用层添加异常处理器。
 - 未捕获异常会变成 `500`；不要把数据库连接串、堆栈等细节返回给客户端。
 
 可以统一错误结构，例如：
