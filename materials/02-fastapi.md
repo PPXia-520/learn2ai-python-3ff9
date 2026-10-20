@@ -198,8 +198,8 @@ from fastapi import APIRouter
 router = APIRouter(prefix="/books", tags=["books"])
 
 
-@router.get("")
-def list_books(): ...
+@router.get("/{book_id}")
+def get_book(book_id: int): ...
 ```
 
 在 `main.py` 中注册：
